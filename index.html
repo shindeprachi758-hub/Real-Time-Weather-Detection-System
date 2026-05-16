@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Time Weather Monitoring System</title>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <div class="header-left">
+                <h1><i class="fa-solid fa-cloud-sun-rain"></i> Weather Station</h1>
+                <p>Real Time IoT Monitoring Dashboard</p>
+            </div>
+            <div class="header-right">
+                <div class="status-indicator" id="connection-status">
+                    <span class="dot"></span>
+                    <span class="status-text">Connecting...</span>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Sensor Cards Grid -->
+            <div class="cards-grid">
+                <!-- Temperature Card -->
+                <div class="card" id="card-temp">
+                    <div class="card-icon"><i class="fa-solid fa-temperature-half"></i></div>
+                    <div class="card-info">
+                        <h3>Temperature</h3>
+                        <div class="value"><span id="val-temp">--</span>°C</div>
+                    </div>
+                </div>
+
+                <!-- Humidity Card -->
+                <div class="card" id="card-hum">
+                    <div class="card-icon"><i class="fa-solid fa-droplet"></i></div>
+                    <div class="card-info">
+                        <h3>Humidity</h3>
+                        <div class="value"><span id="val-hum">--</span>%</div>
+                    </div>
+                </div>
+
+                <!-- Soil Moisture Card -->
+                <div class="card" id="card-soil">
+                    <div class="card-icon"><i class="fa-solid fa-seedling"></i></div>
+                    <div class="card-info">
+                        <h3>Soil Moisture</h3>
+                        <div class="value"><span id="val-soil">--</span></div>
+                        <div class="status-label" id="status-soil">Checking...</div>
+                    </div>
+                </div>
+
+                <!-- Rain Sensor Card -->
+                <div class="card" id="card-rain">
+                    <div class="card-icon"><i class="fa-solid fa-cloud-showers-heavy"></i></div>
+                    <div class="card-info">
+                        <h3>Rain Sensor</h3>
+                        <div class="value"><span id="val-rain">--</span></div>
+                        <div class="status-label" id="status-rain">Checking...</div>
+                    </div>
+                </div>
+
+                <!-- LDR Light Sensor Card -->
+                <div class="card" id="card-ldr">
+                    <div class="card-icon"><i class="fa-solid fa-sun"></i></div>
+                    <div class="card-info">
+                        <h3>Light Level</h3>
+                        <div class="value"><span id="val-ldr">--</span></div>
+                        <div class="status-label" id="status-ldr">Checking...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-section">
+                <div class="chart-container">
+                    <h2><i class="fa-solid fa-chart-line"></i> Temperature & Humidity History</h2>
+                    <canvas id="weatherChart"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
